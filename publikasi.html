@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publikasi - Papua Selatan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .publication-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0 40px;
+            margin-bottom: 40px;
+        }
+        .publication-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+        }
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .file-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        .document-type {
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .type-perda { background: #e3f2fd; color: #1565c0; }
+        .type-pergub { background: #e8f5e9; color: #2e7d32; }
+        .type-laporan { background: #fff3e0; color: #ef6c00; }
+        .type-statistik { background: #f3e5f5; color: #7b1fa2; }
+        .file-size {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .download-btn {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .download-btn:hover {
+            background: linear-gradient(to right, #2980b9, #1f6399);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .search-box {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        .filter-badge {
+            padding: 8px 20px;
+            margin: 0 5px 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .filter-badge:hover, .filter-badge.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        .publication-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        .year-selector {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        .year-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            border: none;
+            background: #f8f9fa;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .year-btn:hover, .year-btn.active {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi (DIPERBARUI dengan menu Publikasi) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-buildings"></i> Papua Selatan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pimpinan.html"><i class="bi bi-person-badge"></i> Profil Pimpinan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kabupaten.html"><i class="bi bi-map"></i> Kabupaten</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pariwisata.html"><i class="bi bi-camera"></i> Pariwisata</a></li>
+                    <li class="nav-item"><a class="nav-link" href="berita.html"><i class="bi bi-newspaper"></i> Berita</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="publikasi.html"><i class="bi bi-file-earmark-text"></i> Publikasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html"><i class="bi bi-images"></i> Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="bi bi-envelope"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Publikasi -->
+    <div class="publication-hero">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Publikasi & Dokumen</h1>
+            <p class="lead mb-0">Akses dokumen resmi, laporan, statistik, dan publikasi Pemerintah Provinsi Papua Selatan</p>
+        </div>
+    </div>
+
+    <!-- Statistik Publikasi -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-3 col-6 mb-3">
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="text-muted">Total Dokumen</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="stat-card">
+                    <div class="stat-number">24</div>
+                    <div class="text-muted">Peraturan Daerah</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="stat-card">
+                    <div class="stat-number">42</div>
+                    <div class="text-muted">Laporan Tahunan</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <div class="stat-card">
+                    <div class="stat-number">1.2GB</div>
+                    <div class="text-muted">Total Ukuran</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pencarian dan Filter -->
+    <div class="container">
+        <div class="search-box">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Cari dokumen atau publikasi...">
+                        <button class="btn btn-primary" type="button">Cari</button>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6>Filter Berdasarkan Jenis:</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="filter-badge badge bg-light text-dark active" onclick="filterPublications('all')">Semua</span>
+                            <span class="filter-badge badge bg-light text-dark" onclick="filterPublications('perda')">Peraturan Daerah</span>
+                            <span class="filter-badge badge bg-light text-dark" onclick="filterPublications('pergub')">Peraturan Gubernur</span>
+                            <span class="filter-badge badge bg-light text-dark" onclick="filterPublications('laporan')">Laporan Kinerja</span>
+                            <span class="filter-badge badge bg-light text-dark" onclick="filterPublications('statistik')">Data Statistik</span>
+                            <span class="filter-badge badge bg-light text-dark" onclick="filterPublications('anggaran')">APBD</span>
+                            <span class="filter-badge badge bg-light text-dark" onclick="filterPublications('lainnya')">Lainnya</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="year-selector">
+                        <h6>Filter Berdasarkan Tahun:</h6>
+                        <button class="year-btn active" onclick="filterByYear('all')">Semua Tahun</button>
+                        <button class="year-btn" onclick="filterByYear('2025')">2025</button>
+                        <button class="year-btn" onclick="filterByYear('2024')">2024</button>
+                        <button class="year-btn" onclick="filterByYear('2023')">2023</button>
+                        <button class="year-btn" onclick="filterByYear('2022')">2022</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publikasi Terbaru -->
+        <h3 class="mb-4">Publikasi Terbaru</h3>
+        <div class="row mb-5" id="publicationsList">
+            <!-- Publikasi 1 -->
+            <div class="col-md-4 mb-4" data-type="perda" data-year="2025">
+                <div class="publication-card p-4">
+                    <div class="file-icon">
+                        <i class="bi bi-file-ear

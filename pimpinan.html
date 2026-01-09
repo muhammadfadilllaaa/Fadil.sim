@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pimpinan - Papua Selatan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .leader-hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 0 40px;
+            margin-bottom: 40px;
+        }
+        .leader-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            background: white;
+        }
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+        .leader-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        .leader-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .leader-header {
+            background: linear-gradient(to right, #2a5298, #1e3c72);
+            color: white;
+            padding: 25px;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2a5298;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #2a5298;
+        }
+        .nav-tabs .nav-link {
+            color: #495057;
+            font-weight: 500;
+            border: none;
+        }
+        .nav-tabs .nav-link.active {
+            background: #2a5298;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-buildings"></i> Papua Selatan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pimpinan.html"><i class="bi bi-person-badge"></i> Profil Pimpinan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kabupaten.html"><i class="bi bi-map"></i> Kabupaten</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pariwisata.html"><i class="bi bi-camera"></i> Pariwisata</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html"><i class="bi bi-images"></i> Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="bi bi-envelope"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="leader-hero">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Profil Pimpinan</h1>
+            <p class="lead mb-0">Para pemimpin yang membawa visi "Gerak CEPAT" menuju Papua Selatan yang Mandiri, Adil dan Sejahtera</p>
+        </div>
+    </div>
+
+    <!-- Tab Navigasi Pimpinan -->
+    <div class="container mb-5">
+        <ul class="nav nav-tabs justify-content-center" id="leaderTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="gubernur-tab" data-bs-toggle="tab" data-bs-target="#gubernur">
+                    Gubernur
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="sekre-daerah-tab" data-bs-toggle="tab" data-bs-target="#sekre-daerah">
+                    Sekretaris Daerah
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pimpinan-lain-tab" data-bs-toggle="tab" data-bs-target="#pimpinan-lain">
+                    Pimpinan Lainnya
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Konten Profil -->
+    <div class="container">
+        <div class="tab-content" id="leaderTabContent">
+            
+            <!-- Profil Gubernur -->
+            <div class="tab-pane fade show active" id="gubernur">
+                <div class="leader-card">
+                    <div class="leader-header text-center">
+                        <h2 class="mb-2">Prof. Dr. Ir. Apolo Safanpo, S.T., M.T., IPM.</h2>
+                        <p class="mb-0">Gubernur Papua Selatan (2022 - Sekarang)</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="leader-img">
+                                <img src="https://www.bing.com/images/search?view=detailV2&ccid=x8ROwZ7s&id=EC98AF366683A47D451D3157DE135D86BBEF7242&thid=OIP.x8ROwZ7sDQE0TxNUnF0OogHaI4&mediaurl=https%3a%2f%2fpapuaselatan.go.id%2fmedia%2fckeditor%2f2023%2f02%2f25%2fgub-papua-selatan.jpg&exph=900&expw=750&q=foto+gubernur+papua+selatan&FORM=IRPRST&ck=1DED588209E754D713F54704E72D24E2&selectedIndex=1&itb=0" alt="Gubernur Papua Selatan">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="p-4">
+                                <h4 class="text-primary mb-3">Biodata</h4>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <p><strong>Tanggal Lahir:</strong> 24 April 1975</p>
+                                        <p><strong>Tempat Lahir:</strong> Papua</p>
+                                        <p><strong>Pendidikan:</strong> Doktor Teknik</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Jabatan Sebelumnya:</strong> Rektor Universitas Cenderawasih</p>
+                                        <p><strong>Mulai Jabatan:</strong> 11 November 2022</p>
+                                        <p><strong>Afiliasi:</strong> Akademisi & Birokrat</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-primary mb-3">Visi & Misi</h4>
+                                <div class="mb-4">
+                                    <h6>Visi:</h6>
+                                    <p>"Mewujudkan Papua Selatan yang Mandiri, Adil dan Sejahtera melalui Gerak CEPAT"</p>
+                                    
+                                    <h6>Misi:</h6>
+                                    <ul>
+                                        <li>Meningkatkan kualitas layanan dasar pendidikan dan kesehatan</li>
+                                        <li>Mengembangkan potensi sumber daya manusia Papua</li>
+                                        <li>Mempercepat pembangunan infrastruktur wilayah</li>
+                                        <li>Meningkatkan tata kelola pemerintahan yang akuntabel</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Riwayat Jabatan -->
+                    <div class="p-4 pt-0">
+                        <h4 class="text-primary mb-4">Riwayat Jabatan Pemerintahan</h4>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <h6>2003 - 2005</h6>
+                                    <p class="mb-0">Ketua Jurusan Teknik Sipil, Fakultas Teknik, Universitas Cenderawasih</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <h6>2005 - 2012</h6>
+                                    <p class="mb-0">Pembantu Dekan III, Fakultas Teknik, Universitas Cenderawasih</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <h6>2012 - 2017</h6>
+                                    <p class="mb-0">Dekan Fakultas Teknik, Universitas Cenderawasih</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <h6>2017 - 2022</h6>
+                                    <p class="mb-0">Rektor Universitas Cenderawasih</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <h6>2022</h6>
+                                    <p class="mb-0">Staf Ahli Menteri Dalam Negeri Bidang Pemerintahan</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <h6>2022 - Sekarang</h6>
+                                    <p class="mb-0">Gubernur Papua Selatan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profil Sekretaris Daerah -->
+            <div class="tab-pane fade" id="sekre-daerah">
+                <div class="leader-card">
+                    <div class="leader-header text-center">
+                        <h2 class="mb-2">Komjen Pol. (Purn.) Drs. Rudy Sufahriadi</h2>
+                        <p class="mb-0">Sekretaris Daerah Provinsi Papua Selatan</p>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="leader-img">
+                                <img src="https://www.bing.com/images/search?view=detailV2&ccid=EmLkon8x&id=665426FC0F53CE96B958639CE6049CB9378FC550&thid=OIP.EmLkon8xE5UtNEDuK9p7rgHaEK&mediaurl=https%3a%2f%2fasset-2.tribunnews.com%2fmakassar%2ffoto%2fbank%2fimages%2fKomjen-Pol-Purn-Rudy-Sufahriadi-1-582024.jpg&exph=393&expw=700&q=Komjen+Pol.+(Purn.)+Drs.+Rudy+Sufahriadi&FORM=IRPRST&ck=5D40838FFE016CE088A64AE8BA07AF40&selectedIndex=5&itb=0" alt="Sekretaris Daerah">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="p-4">
+                                <h4 class="text-primary mb-3">Biodata</h4>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <p><strong>Latar Belakang:</strong> Kepolisian</p>
+                                        <p><strong>Pangkat Terakhir:</strong> Komisaris Jenderal Polisi</p>
+                                        <p><strong>Jabatan Sebelumnya:</strong> Sekretaris Utama Lemhannas</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Pengalaman Operasi:</strong> Operasi Tinombala & Madago Raya</p>
+                                        <p><strong>Mulai Jabatan:</strong> 10 November 2023</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-primary mb-3">Tugas & Tanggung Jawab</h4>
+                                <ul>
+                                    <li>Memimpin Sekretariat Daerah Provinsi Papua Selatan</li>
+                                    <li>Mengkoordinasikan seluruh asisten dan biro di lingkungan Sekda</li>
+                                    <li>Melaksanakan pengawasan administrasi keuangan daerah</li>
+                                    <li>Menyelenggarakan sistem informasi pemerintahan daerah</li>
+                                    <li>Mengawasi pelaksanaan kebijakan daerah</li>
+                                </ul>
+                                
+                                <h4 class="text-primary mt-4 mb-3">Riwayat Penugasan Khusus</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card bg-light mb-3">
+                                            <div class="card-body">
+                                                <h6>Operasi Tinombala</h6>
+                                                <p class="small mb-0">2016 - 2018<br>Penanggung Jawab Operasi</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card bg-light mb-3">
+                                            <div class="card-body">
+                                                <h6>Operasi Madago Raya</h6>
+                                                <p class="small mb-0">2021 - 2023<br>Penanggung Jawab Operasi</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pimpinan Lainnya -->
+            <div class="tab-pane fade" id="pimpinan-lain">
+                <div class="row">
+                    <!-- Asisten I -->
+                    <div class="col-md-6 mb-4">
+                        <div class="leader-card h-100">
+                            <div class="leader-header" style="background: linear-gradient(to right, #3498db, #2980b9);">
+                                <h5 class="mb-0">Asisten I Bidang Pemerintahan</h5>
+                            </div>
+                            <div class="p-3">
+                                <h6>Tugas Pokok:</h6>
+                                <ul class="small">
+                                    <li>Urusan pemerintahan umum</li>
+                                    <li>Koordinasi administrasi kependudukan</li>
+                                    <li>Pengawasan penyelenggaraan pemerintahan daerah</li>
+                                    <li>Koordinasi kerjasama daerah</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Asisten II -->
+                    <div class="col-md-6 mb-4">
+                        <div class="leader-card h-100">
+                            <div class="leader-header" style="background: linear-gradient(to right, #2ecc71, #27ae60);">
+                                <h5 class="mb-0">Asisten II Bidang Perekonomian</h5>
+                            </div>
+                            <div class="p-3">
+                                <h6>Tugas Pokok:</h6>
+                                <ul class="small">
+                                    <li>Pengembangan ekonomi daerah</li>
+                                    <li>Koordinasi investasi dan usaha</li>
+                                    <li>Pengelolaan sumber daya alam</li>
+                                    <li>Pembangunan sektor riil</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Asisten III -->
+                    <div class="col-md-6 mb-4">
+                        <div class="leader-card h-100">
+                            <div class="leader-header" style="background: linear-gradient(to right, #e74c3c, #c0392b);">
+                                <h5 class="mb-0">Asisten III Bidang Administrasi</h5>
+                            </div>
+                            <div class="p-3">
+                                <h6>Tugas Pokok:</h6>
+                                <ul class="small">
+                                    <li>Administrasi kepegawaian</li>
+                                    <li>Pengelolaan keuangan daerah</li>
+                                    <li>Pengadaan barang/jasa pemerintah</li>
+                                    <li>Manajemen aset daerah</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Asisten IV -->
+                    <div class="col-md-6 mb-4">
+                        <div class="leader-card h-100">
+                            <div class="leader-header" style="background: linear-gradient(to right, #9b59b6, #8e44ad);">
+                                <h5 class="mb-0">Asisten IV Bidang Kesejahteraan Rakyat</h5>
+                            </div>
+                            <div class="p-3">
+                                <h6>Tugas Pokok:</h6>
+                                <ul class="small">
+                                    <li>Pelayanan dasar pendidikan</li>
+                                    <li>Pelayanan kesehatan masyarakat</li>
+                                    <li>Penanggulangan kemiskinan</li>
+                                    <li>Pemberdayaan masyarakat</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Kantor Gubernur Papua Selatan</h5>
+                    <p class="mb-2">Jl. Raya Merauke No. 1, Papua Selatan</p>
+                    <p class="mb-0 small">Email: info@papuaselatan.go.id | Telp: (0971) 123456</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">← Kembali ke Beranda</a>
+                    <p class="mt-3 small">© 2025 Pemerintah Provinsi Papua Selatan</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

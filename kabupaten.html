@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kabupaten - Papua Selatan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .districts-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 80px 0 40px;
+            margin-bottom: 40px;
+        }
+        .district-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        .district-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .district-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: #2c3e50;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .district-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        .district-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .district-card:hover .district-img img {
+            transform: scale(1.05);
+        }
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid;
+        }
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        .map-mini {
+            height: 200px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .color-box {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        .compare-table th {
+            position: sticky;
+            top: 0;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-buildings"></i> Papua Selatan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pimpinan.html"><i class="bi bi-person-badge"></i> Profil Pimpinan</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="kabupaten.html"><i class="bi bi-map"></i> Kabupaten</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pariwisata.html"><i class="bi bi-camera"></i> Pariwisata</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html"><i class="bi bi-images"></i> Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="bi bi-envelope"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="districts-hero">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Data Kabupaten</h1>
+            <p class="lead mb-0">Provinsi Papua Selatan terdiri dari 4 Kabupaten dengan keunikan dan potensi masing-masing</p>
+        </div>
+    </div>
+
+    <!-- Filter & Pencarian -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Cari kabupaten atau distrik...">
+                    <button class="btn btn-primary" type="button">Cari</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary w-50" onclick="sortByArea()">
+                        <i class="bi bi-sort-numeric-down"></i> Luas
+                    </button>
+                    <button class="btn btn-outline-primary w-50" onclick="sortByPopulation()">
+                        <i class="bi bi-people"></i> Penduduk
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daftar Kabupaten -->
+    <div class="container mb-5">
+        <h3 class="mb-4 text-primary">Keempat Kabupaten di Papua Selatan</h3>
+        <div class="row" id="districtsContainer">
+            <!-- Kabupaten Merauke -->
+            <div class="col-lg-6 mb-4">
+                <div class="district-card">
+                    <div class="district-img position-relative">
+                        <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Merauke">
+                        <div class="district-badge">
+                            <span class="color-box" style="background-color: #FF6B6B;"></span> Merauke
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">Kabupaten Merauke</h4>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-geo-alt text-primary"></i> <strong>Ibu Kota:</strong></p>
+                                <p class="mb-1">Merauke</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-award text-primary"></i> <strong>Julukan:</strong></p>
+                                <p class="mb-1">Kota Rusa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center mb-4">
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">47.297</h5>
+                                    <small class="text-muted">km² Luas</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">231.696</h5>
+                                    <small class="text-muted">Jiwa</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">22</h5>
+                                    <small class="text-muted">Distrik</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h6><i class="bi bi-info-circle text-primary"></i> Informasi:</h6>
+                            <p class="small mb-2">Kabupaten terluas di Papua Selatan dengan Taman Nasional Wasur sebagai daya tarik utama.</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="pariwisata.html#merauke" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-camera"></i> Pariwisata
+                            </a>
+                            <a href="https://merauke.go.id" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="bi bi-link"></i> Situs Resmi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kabupaten Asmat -->
+            <div class="col-lg-6 mb-4">
+                <div class="district-card">
+                    <div class="district-img position-relative">
+                        <img src="Sim/foto/asmat.jpg" alt="Asmat">
+                        <div class="district-badge">
+                            <span class="color-box" style="background-color: #4ECDC4;"></span> Asmat
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">Kabupaten Asmat</h4>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-geo-alt text-primary"></i> <strong>Ibu Kota:</strong></p>
+                                <p class="mb-1">Agats</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-award text-primary"></i> <strong>Julukan:</strong></p>
+                                <p class="mb-1">Kota Seribu Papan</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center mb-4">
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">26.143</h5>
+                                    <small class="text-muted">km² Luas</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">111.632</h5>
+                                    <small class="text-muted">Jiwa</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">25</h5>
+                                    <small class="text-muted">Distrik</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h6><i class="bi bi-info-circle text-primary"></i> Informasi:</h6>
+                            <p class="small mb-2">Terkenal dengan seni ukir kayu tradisional dan Festival Budaya Asmat yang mendunia.</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="pariwisata.html#asmat" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-camera"></i> Pariwisata
+                            </a>
+                            <a href="https://asmatkab.go.id" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="bi bi-link"></i> Situs Resmi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kabupaten Mappi -->
+            <div class="col-lg-6 mb-4">
+                <div class="district-card">
+                    <div class="district-img position-relative">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mappi">
+                        <div class="district-badge">
+                            <span class="color-box" style="background-color: #FFD166;"></span> Mappi
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">Kabupaten Mappi</h4>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-geo-alt text-primary"></i> <strong>Ibu Kota:</strong></p>
+                                <p class="mb-1">Kepi</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-award text-primary"></i> <strong>Julukan:</strong></p>
+                                <p class="mb-1">Kota Sejuta Rawa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center mb-4">
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">24.017</h5>
+                                    <small class="text-muted">km² Luas</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">109.579</h5>
+                                    <small class="text-muted">Jiwa</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded py-2">
+                                    <h5 class="text-primary mb-1">15</h5>
+                                    <small class="text-muted">Distrik</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h6><i class="bi bi-info-circle text-primary"></i> Informasi:</h6>
+                            <p class="small mb-2">Memiliki ekosistem rawa yang luas dengan keanekaragaman hayati yang tinggi.</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="pariwisata.html#mappi" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-camera"></i> Pariwisata
+                            </a>
+                            <a href="https://mappikab.go.id" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="bi bi-link"></i> Situs Resmi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kabupaten Boven Digoel -->
+            <div class="col-lg-6 mb-4">
+                <div class="district-card">
+                    <div class="district-img position-relative">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boven Digoel">
+                        <div class="district-badge">
+                            <span class="color-box" style="background-color: #06D6A0;"></span> Boven Digoel
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">Kabupaten Boven Digoel</h4>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi-geo-alt text-primary"></i> <strong>Ibu Kota:</strong></p>
+                                <p class="mb-1">Tanah Merah</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="mb-1"><i class="bi bi

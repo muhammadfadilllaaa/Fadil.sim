@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pariwisata Papua Selatan</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .tourism-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .district-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+        }
+        .district-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .district-header {
+            padding: 25px;
+            color: white;
+        }
+        .merauke-header {
+            background: linear-gradient(to right, #FF6B6B, #FF8E8E);
+        }
+        .asmat-header {
+            background: linear-gradient(to right, #4ECDC4, #6CE6DE);
+        }
+        .mappi-header {
+            background: linear-gradient(to right, #FFD166, #FFE082);
+        }
+        .boven-header {
+            background: linear-gradient(to right, #06D6A0, #4DEBB8);
+        }
+        .attraction-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .attraction-item:hover {
+            background: #e9ecef;
+        }
+        .attraction-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            color: #4a6fa5;
+        }
+        .nav-tabs .nav-link {
+            color: #495057;
+            font-weight: 500;
+        }
+        .nav-tabs .nav-link.active {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+        }
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .back-to-home {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-buildings"></i> Papua Selatan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pimpinan.html"><i class="bi bi-person-badge"></i> Profil Pimpinan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kabupaten.html"><i class="bi bi-map"></i> Kabupaten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pariwisata.html"><i class="bi bi-camera"></i> Pariwisata</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeri.html"><i class="bi bi-images"></i> Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html"><i class="bi bi-envelope"></i> Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Pariwisata -->
+    <div class="tourism-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Pariwisata Papua Selatan</h1>
+            <p class="lead mb-4">Jelajahi keindahan alam, kekayaan budaya, dan pengalaman tak terlupakan di Bumi Cenderawasih Selatan</p>
+            <a href="#destinasi" class="btn btn-light btn-lg">
+                <i class="bi bi-compass"></i> Temukan Destinasi
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigasi Antar Kabupaten -->
+    <div class="container mb-5">
+        <ul class="nav nav-tabs justify-content-center" id="districtTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="merauke-tab" data-bs-toggle="tab" data-bs-target="#merauke" type="button">
+                    <i class="bi bi-tree"></i> Merauke
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="asmat-tab" data-bs-toggle="tab" data-bs-target="#asmat" type="button">
+                    <i class="bi bi-brush"></i> Asmat
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mappi-tab" data-bs-toggle="tab" data-bs-target="#mappi" type="button">
+                    <i class="bi bi-water"></i> Mappi
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="boven-tab" data-bs-toggle="tab" data-bs-target="#boven" type="button">
+                    <i class="bi bi-signpost-split"></i> Boven Digoel
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Konten Destinasi -->
+    <div class="container" id="destinasi">
+        <div class="tab-content" id="districtTabContent">
+            
+            <!-- Merauke -->
+            <div class="tab-pane fade show active" id="merauke" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="district-card">
+                            <div class="district-header merauke-header">
+                                <h2 class="mb-2"><i class="bi bi-tree"></i> Kabupaten Merauke</h2>
+                                <p class="mb-0">"Kota Rusa" dengan Taman Nasional Wasur yang memesona</p>
+                            </div>
+                            <div class="card-body p-4">
+                                <h4 class="mb-4">Destinasi Utama</h4>
+                                
+                                <div class="attraction-item">
+                                    <div class="attraction-icon">
+                                        <i class="bi bi-tree-fill"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Taman Nasional Wasur</h5>
+                                        <p class="mb-0">Sering disebut "Serengeti Papua", taman nasional ini memiliki padang savana luas dan kekayaan satwa liar termasuk kanguru pohon, burung cenderawasih, dan rusa.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="attraction-item">
+                                    <div class="attraction-icon">
+                                        <i class="bi bi-water"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Pantai Lampu Satu</h5>
+                                        <p class="mb-0">Pantai dengan pemandangan matahari terbenam yang spektakuler, lokasi ideal untuk bersantai dan menikmati hidangan laut segar.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="attraction-item">
+                                    <div class="attraction-icon">
+                                        <i class="bi bi-signpost"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Tugu Patung Jenderal Sudirman</h5>
+                                        <p class="mb-0">Monumen bersejarah yang mengenang perjuangan Jenderal Sudirman dalam perang gerilya di wilayah Papua.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="attraction-item">
+                                    <div class="attraction-icon">
+                                        <i class="bi bi-basket"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Pasar Traditional Merauke</h5>
+                                        <p class="mb-0">Tempat terbaik untuk merasakan kehidupan lokal, mencoba kuliner khas, dan membeli kerajinan tangan asli Papua.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h5>Aktivitas Wisata</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li>Wildlife safari di Taman Nasional Wasur</li>
+                                                <li>Birdwatching burung endemik Papua</li>
+                                                <li>Fotografi lanskap savana</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul>
+                                                <li>Kunjungan budaya ke perkampungan suku Marind</li>
+                                                <li>Memancing di Sungai Maro</li>
+                                                <li>Kuliner seafood khas Merauke</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-header merauke-header">
+                                <h5 class="mb-0">Info Wisata</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Waktu Terbaik Berkunjung:</strong> Mei-Oktober (musim kemarau)</p>
+                                <p><strong>Aksesibilitas:</strong> Bandara Mopah Merauke</p>
+                                <p><strong>Akomodasi:</strong> Hotel dan guesthouse tersedia</p>
+                                <p><strong>Kuliner Khas:</strong> Ikan sungai, sagu, venison (daging rusa)</p>
+                                
+                                <div class="mt-4">
+                                    <h6>Galeri Merauke</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="gallery-item">
+                                                <img src

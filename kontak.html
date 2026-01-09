@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Papua Selatan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .contact-hero {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            padding: 80px 0 40px;
+            margin-bottom: 40px;
+        }
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .icon-address { background: #e3f2fd; color: #1565c0; }
+        .icon-phone { background: #e8f5e9; color: #2e7d32; }
+        .icon-email { background: #fff3e0; color: #ef6c00; }
+        .icon-hours { background: #f3e5f5; color: #7b1fa2; }
+        .form-control:focus {
+            border-color: #1a2980;
+            box-shadow: 0 0 0 0.2rem rgba(26, 41, 128, 0.25);
+        }
+        .btn-submit {
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-submit:hover {
+            background: linear-gradient(to right, #26d0ce, #1a2980);
+            transform: translateY(-2px);
+        }
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .social-contact a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .social-contact a:hover {
+            transform: translateY(-3px);
+        }
+        .fa-facebook { background: #3b5998; }
+        .fa-twitter { background: #1da1f2; }
+        .fa-instagram { background: #e4405f; }
+        .fa-youtube { background: #cd201f; }
+        .department-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .department-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s;
+        }
+        .department-item:hover {
+            background: #f8f9fa;
+        }
+        .emergency-contact {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-buildings"></i> Papua Selatan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pimpinan.html"><i class="bi bi-person-badge"></i> Profil Pimpinan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kabupaten.html"><i class="bi bi-map"></i> Kabupaten</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pariwisata.html"><i class="bi bi-camera"></i> Pariwisata</a></li>
+                    <li class="nav-item"><a class="nav-link" href="berita.html"><i class="bi bi-newspaper"></i> Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publikasi.html"><i class="bi bi-file-earmark-text"></i> Publikasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galeri.html"><i class="bi bi-images"></i> Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="kontak.html"><i class="bi bi-envelope"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Kontak -->
+    <div class="contact-hero">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Hubungi Kami</h1>
+            <p class="lead mb-0">Kami siap melayani dan mendengarkan aspirasi masyarakat Papua Selatan</p>
+        </div>
+    </div>
+
+    <!-- Informasi Kontak -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="contact-card">
+                            <div class="contact-icon icon-address">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h5>Alamat Kantor</h5>
+                            <p class="mb-0">
+                                Jl. Raya Merauke No. 1<br>
+                                Kota Merauke, Papua Selatan 99611<br>
+                                Indonesia
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="contact-card">
+                            <div class="contact-icon icon-phone">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h5>Telepon</h5>
+                            <p class="mb-2"><strong>Kantor Gubernur:</strong></p>
+                            <p class="mb-1">(0971) 123456</p>
+                            <p class="mb-1">(0971) 123457</p>
+                            <p class="mb-0">Fax: (0971) 123458</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="contact-card">
+                            <div class="contact-icon icon-email">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <h5>Email</h5>
+                            <p class="mb-1"><strong>Informasi Umum:</strong></p>
+                            <p class="mb-2">info@papuaselatan.go.id</p>
+                            <p class="mb-1"><strong>Humas:</strong></p>
+                            <p class="mb-0">humas@papuaselatan.go.id</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="contact-card">
+                            <div class="contact-icon icon-hours">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <h5>Jam Operasional</h5>
+                            <p class="mb-1"><strong>Senin - Kamis:</strong></p>
+                            <p class="mb-2">08:00 - 16:00 WIT</p>
+                            <p class="mb-1"><strong>Jumat:</strong></p>
+                            <p class="mb-0">08:00 - 15:00 WIT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Kontak -->
+                <div class="contact-card mb-4">
+                    <h4 class="mb-4">Kirim Pesan kepada Kami</h4>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Nama Lengkap *</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Alamat Email *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Nomor Telepon</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="subject" class="form-label">Subjek *</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="">Pilih subjek...</option>
+                                    <option value="informasi">Permintaan Informasi</option>
+                                    <option value="pengaduan">Pengaduan Masyarakat</option>
+                                    <option value="saran">Saran dan Masukan</option>
+                                    <option value="kerjasama">Kerjasama</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Pesan *</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agree" required>
+                                <label class="form-check-label" for="agree">
+                                    Saya setuju dengan <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">kebijakan privasi</a>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <i class="bi bi-send"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Kontak Darurat -->
+                <div class="emergency-contact mb-4">
+                    <h5><i class="bi bi-exclamation-triangle"></i> Kontak Darurat</h5>
+                    <p class="mb-2">Untuk keadaan darurat, hubungi:</p>
+                    <p class="mb-1"><strong>Posko Bencana:</strong> 112</p>
+                    <p class="mb-1"><strong>Dinas Kesehatan:</strong> (0971) 789012</p>
+                    <p class="mb-0"><strong>Polisi:</strong> 110</p>
+                </div>
+
+                <!-- Daftar Departemen -->
+                <div class="contact-card mb-4">
+                    <h5 class="mb-3">Kontak Per Departemen</h5>
+                    <div class="department-list">
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Pendidikan</h6>
+                            <p class="small mb-0">(0971) 234567 | dinas.pendidikan@papuaselatan.go.id</p>
+                        </div>
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Kesehatan</h6>
+                            <p class="small mb-0">(0971) 234568 | dinas.kesehatan@papuaselatan.go.id</p>
+                        </div>
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Pekerjaan Umum</h6>
+                            <p class="small mb-0">(0971) 234569 | dinas.pu@papuaselatan.go.id</p>
+                        </div>
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Pariwisata</h6>
+                            <p class="small mb-0">(0971) 234570 | dinas.pariwisata@papuaselatan.go.id</p>
+                        </div>
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Sosial</h6>
+                            <p class="small mb-0">(0971) 234571 | dinas.sosial@papuaselatan.go.id</p>
+                        </div>
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Perhubungan</h6>
+                            <p class="small mb-0">(0971) 234572 | dinas.perhubungan@papuaselatan.go.id</p>
+                        </div>
+                        <div class="department-item">
+                            <h6 class="mb-1">Dinas Pertanian</h6>
+                            <p class="small mb-0">(0971) 234573 | dinas.pertanian@papuaselatan.go.id</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Sosial -->
+                <div class="contact-card">
+                    <h5 class="mb-3">Ikuti Kami di Media Sosial</h5>
+                    <div class="social-contact">
+                        <a href="#" class="fa-facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="fa-twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="fa-instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="fa-youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="small text-muted mt-3 mb-0">
+                        Dapatkan informasi terbaru melalui media sosial resmi Pemerintah Provinsi Papua Selatan
+                    </p>
+                </div>
+
+                <!-- Peta Lokasi -->
+                <div class="map-container mt-4">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.95304282713!2d140.30555559418873!3d-8.495872699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x686d66c6e8edae81%3A0x8b8a7d9c7c7c7c7c!2sMerauke%2C%20Papua%20Selatan!5e0!3m2!1sid!2sid!4v1647856789012!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="250" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Lokasi Kantor Gubernur Papua Selatan">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container mb-5">
+        <div class="contact-card">
+            <h4 class="mb-4">Pertanyaan yang Sering Diajukan (FAQ)</h4>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Bagaimana cara mengajukan permohonan informasi publik?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Permohonan informasi publik dapat diajukan melalui PPID (Pejabat Pengelola Informasi dan Dokumentasi) Provinsi Papua Selatan dengan mengisi formulir yang tersedia di website atau datang langsung ke kantor.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Berapa lama waktu respon untuk pengaduan masyarakat?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Pengaduan masyarakat akan diproses maksimal 14 hari kerja setelah diterima. Status pengaduan dapat dicek melalui nomor tiket yang diberikan.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Bagaimana cara mengajukan izin usaha di Papua Selatan?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Pengajuan izin usaha dapat dilakukan melalui Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu (DPMPTSP) Provinsi Papua Selatan dengan persyaratan yang dapat dilihat di website resmi.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Apakah ada layanan kunjungan ke kantor gubernur?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Ya, masyarakat dapat melakukan kunjungan dengan membuat janji terlebih dahulu melalui bagian protokol dan komunikasi publik. Kunjungan dibuka setiap hari kerja sesuai jam operasional.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Kontak Papua Selatan</h5>
+                    <p class="mb-2">Pemerintah Provinsi Papua Selatan siap melayani masyarakat dengan sepenuh hati</p>
+                    <p class="small mb-0">Email: info@papuaselatan.go.id | Hotline: (0971) 123456</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="index.html" class="btn btn-outline-light btn-sm">← Kembali ke Beranda</a>
+                    <p class="mt-3 small">© 2025 Pemerintah Provinsi Papua Selatan. Semua hak dilindungi.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Kebijakan Privasi -->
+    <div class="modal fade" id="privacyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kebijakan Privasi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Data pribadi yang Anda kirimkan melalui formulir kontak ini akan digunakan hanya untuk keperluan penanganan permohonan, pengaduan, atau saran yang Anda sampaikan.</p>
+                    <p>Kami tidak akan membagikan data pribadi Anda kepada pihak ketiga tanpa persetujuan, kecuali diwajibkan oleh hukum.</p>
+                    <p>Dengan mengirimkan formulir ini, Anda menyetujui pengumpulan dan penggunaan data sesuai dengan kebijakan ini.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            
+            // Show success message
+            alert(`Terima kasih ${name}! Pesan Anda telah berhasil dikirim. Kami akan membalas ke ${email} segera.`);
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+        
+        // Smooth scroll for FAQ
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqId = button.getAttribute('data-bs-target');
+                document.querySelector(faqId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
